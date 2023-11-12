@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import Logo from "../Assets/Logo.svg";
-import { BsCart2 } from "react-icons/bs";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -11,34 +10,40 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import InfoIcon from "@mui/icons-material/Info";
 import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import MenuItem from "./MenuItem";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const menuOptions = [
     {
-      text: "Home",
-      icon: <HomeIcon />,
-    },
-    {
       text: "About",
       icon: <InfoIcon />,
+      link: "about",
+    },
+    {
+      text: "How Does It Work",
+      icon: <QuestionMarkIcon />,
+      link: "work",
     },
     {
       text: "Testimonials",
       icon: <CommentRoundedIcon />,
+      link: "testimonial",
     },
     {
       text: "Contact",
       icon: <PhoneRoundedIcon />,
+      link: "contact",
     },
     {
       text: "Cart",
       icon: <ShoppingCartRoundedIcon />,
+      link: "",
     },
   ];
   return (
@@ -47,13 +52,9 @@ const Navbar = () => {
         <img src={Logo} alt="" />
       </div>
       <div className="navbar-links-container">
-        <a href="/#about">About</a>
-        <a href="/#work">How It Works</a>
-        <a href="/#testimonial">Testimonials</a>
-        <a href="/#contact">Contact</a>
-        <a href="">
-          <BsCart2 className="navbar-cart-icon" />
-        </a>
+        {menuOptions.map((item) => (
+          <MenuItem itemName={item.text} link={item.link} />
+        ))}
         <button className="primary-button">Book Now</button>
       </div>
       <div className="navbar-menu-container">
@@ -69,7 +70,7 @@ const Navbar = () => {
           <List>
             {menuOptions.map((item) => (
               <ListItem key={item.text} disablePadding>
-                <ListItemButton>
+                <ListItemButton href={`#${item.link}`}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                 </ListItemButton>
