@@ -308,7 +308,7 @@ nav {
   font-weight: 600;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1140px) {
   .navbar-links-container a {
     margin-right: 1rem;
     font-size: 1rem;
@@ -320,7 +320,7 @@ nav {
     max-width: 600px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .nav-logo-container {
     max-width: 140px;
   }

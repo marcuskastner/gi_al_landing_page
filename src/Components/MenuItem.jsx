@@ -16,7 +16,7 @@ const MenuItem = ({ itemName, link }) => {
     <a
       href={`#${link}`}
       onClick={handleClick}
-      ariaLabel={`Scroll to ${itemName}`}
+      aria-label={`Scroll to ${itemName}`}
     >
       {itemName}
     </a>

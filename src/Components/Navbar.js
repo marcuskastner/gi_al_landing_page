@@ -52,8 +52,8 @@ const Navbar = () => {
         <img src={Logo} alt="" />
       </div>
       <div className="navbar-links-container">
-        {menuOptions.map((item) => (
-          <MenuItem itemName={item.text} link={item.link} />
+        {menuOptions.map((item, i) => (
+          <MenuItem itemName={item.text} link={item.link} key={i} />
         ))}
         <button className="primary-button">Book Now</button>
       </div>
